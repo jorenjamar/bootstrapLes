@@ -1,0 +1,18 @@
+<!--Card-->
+<div class="card">
+        
+            <!--Card image-->
+            <img class="img-fluid" [src]="imageUrl" alt="Card image cap">
+            <select class="form-control" [(ngModel)]="counter">
+                <option *ngFor = "let foto of fotos" value= {{foto}} (click)="ChangeImageOnClick()">{{foto}}</option>>
+            </select>
+            <!--Card content-->
+            <div class="card-body">
+                <!--Title-->
+                <h4 class="card-title">Welkom</h4>
+                <!--Text-->
+                <p class="card-text">deze awesome website is van DJ Jaman. Afmaken "two-way binding (dia 11)" + "services (dia 12)" + "services(2) (dia 13)"</p>
+            </div>
+        
+        </div>
+        <!--/.Card-->
