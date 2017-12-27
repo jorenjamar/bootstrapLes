@@ -1,4 +1,4 @@
-<div class="card" *ngIf="data">
+<div class="card">
     <div class="card-header"> {{data.location | uppercase}}</div>
         <div class="card-block">
             <ul class="list-group">
@@ -7,10 +7,10 @@
                 <li class="list-group-item"><i class="fa fa-sun-o"></i> {{data.sunrise | date:"HH:mm" }}</li>
                 <li class="list-group-item"><i class="fa fa-moon-o"></i> {{data.sunset | date:"HH:mm" }}</li>-->
 
-                <li class="list-group-item">Momenteel:<strong>{{weerLijst.weather.description}}</strong></li>
-                <li class="list-group-item" *ngIf="data.temperature">Temperatuur:<strong>{{weerLijst.main.temp}}</strong></li>
-                <li class="list-group-item"><i class="fa fa-sun-o"></i> {{weerLijst.sys.sunrise}}</li>
-                <li class="list-group-item"><i class="fa fa-moon-o"></i> {{weerLijst.sys.sunset}}</li>
+                <li class="list-group-item">Momenteel:<string>{{weerLijst.description}}</string></li>
+                <li class="list-group-item" *ngIf="data.temperature">Temperatuur:<string>{{weerLijst.temperature | number:"1.1-1"}}</string></li>
+                <li class="list-group-item"><i class="fa fa-sun-o"></i> {{weerLijst.sunrise | date:"HH:mm" }}</li>
+                <li class="list-group-item"><i class="fa fa-moon-o"></i> {{weerLijst.sunset | date:"HH:mm" }}</li>
             </ul>
         </div>
 </div>

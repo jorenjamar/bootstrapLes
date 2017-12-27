@@ -1,13 +1,13 @@
 import { Component } from "@angular/core";
-import {WeatherService, RootObject} from "../services/weather.service"
-import { OnInit, OnChanges } from "@angular/core/src/metadata/lifecycle_hooks";
+import {WeatherService, RootObject, Weather} from "../services/weather.service"
+import { OnInit} from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
     selector: 'app-weather',
     templateUrl: "./weather.component.html"
 })
 
-export class WeatherComponent implements OnChanges{
+export class WeatherComponent implements OnInit{
     /*data: IWeather = {
         "location": "Antwerpen", 
         "description" : "zonning",
@@ -16,21 +16,31 @@ export class WeatherComponent implements OnChanges{
         "sunset" : new Date(2017,1,1,21,25)
       }*/
 
-      weerLijst : RootObject;
+      weerLijst : IWeather;
 
       constructor(private service: WeatherService){
           
       }
 
-      ngOnChanges(){
-        this.service.getWeer().subscribe(d => this.weerLijst = d);
+      ngOnInit(){
+        this.service.getWeer().subscribe(d => this.weerLijst = this.MapResults(d));
+      }
+
+      private MapResults(d : RootObject) : IWeather{
+        return{
+            location: d.name,
+            description: d.weather[0].description,
+            temperature: d.main.temp,
+            sunrise: new Date(d.sys.sunrise * 1000),
+            sunset: new Date(d.sys.sunset * 1000)
+        }
       }
 }
-/*
+
 interface IWeather{
     location: string;
     description: string;
     temperature: number;
     sunrise: Date;
     sunset: Date;
-  }*/
+  }
