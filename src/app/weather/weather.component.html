@@ -2,10 +2,15 @@
     <div class="card-header"> {{data.location | uppercase}}</div>
         <div class="card-block">
             <ul class="list-group">
-                <li class="list-group-item">Momenteel:<strong>{{data.description}}</strong></li>
+                <!--<li class="list-group-item">Momenteel:<strong>{{data.description}}</strong></li>
                 <li class="list-group-item" *ngIf="data.temperature">Temperatuur:<strong>{{data.temperature | number:"1.1-1"}}</strong></li>
                 <li class="list-group-item"><i class="fa fa-sun-o"></i> {{data.sunrise | date:"HH:mm" }}</li>
-                <li class="list-group-item"><i class="fa fa-moon-o"></i> {{data.sunset | date:"HH:mm" }}</li>
+                <li class="list-group-item"><i class="fa fa-moon-o"></i> {{data.sunset | date:"HH:mm" }}</li>-->
+
+                <li class="list-group-item">Momenteel:<strong>{{weerLijst.weather.description}}</strong></li>
+                <li class="list-group-item" *ngIf="data.temperature">Temperatuur:<strong>{{weerLijst.main.temp}}</strong></li>
+                <li class="list-group-item"><i class="fa fa-sun-o"></i> {{weerLijst.sys.sunrise}}</li>
+                <li class="list-group-item"><i class="fa fa-moon-o"></i> {{weerLijst.sys.sunset}}</li>
             </ul>
         </div>
 </div>

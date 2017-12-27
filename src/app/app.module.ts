@@ -14,6 +14,7 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DelijnService } from './services/delijn.service';
+import { WeatherService } from './services/weather.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,9 @@ import { DelijnService } from './services/delijn.service';
     
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [DelijnService],
+  providers: [
+    DelijnService, 
+    WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
