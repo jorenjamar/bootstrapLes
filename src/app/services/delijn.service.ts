@@ -8,8 +8,8 @@ import "rxjs/add/observable/of";
 export class DelijnService{
     constructor(private _http: HttpClient){}
 
-    get Lijst() : Observable<ILijnen[]>{
-        return this._http.get<ILijnen[]>("https://www.delijn.be/rise-api-core/haltes/vertrekken/200144/7")
+    getLijst() : Observable<IVertrekken>{
+        return this._http.get<IVertrekken>("https://www.delijn.be/rise-api-core/haltes/vertrekken/200144/7")
     }
 }
 

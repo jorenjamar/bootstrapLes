@@ -13,6 +13,7 @@ import { PageNotFoundComponent } from './pageNotFound/pageNotFound.component';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DelijnService } from './services/delijn.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [DelijnService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

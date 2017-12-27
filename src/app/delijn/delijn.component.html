@@ -17,10 +17,10 @@
                     <td>{{vertrek.vertrekTijd | date:"HH:mm"}}</td>
                 </tr>
             -->
-            <tr *ngFor="let item of lijst">
-                <td>{{item.lijnNummer}}</td>
-                <td>{{item.bestemming}}</td>
-                <td>{{item.vertrekTijd}}</td>
+            <tr *ngFor="let vertrek of lijst.lijnen">
+                <td>{{vertrek.lijnNummer}}</td>
+                <td>{{vertrek.bestemming}}</td>
+                <td>{{vertrek.vertrekTijd}}</td>
             </tr>
             </tbody>
         </table>

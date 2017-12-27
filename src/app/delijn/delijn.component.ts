@@ -1,12 +1,13 @@
 import { Component } from "@angular/core";
-import { DelijnService, ILijnen } from "../services/delijn.service";
+import { DelijnService, ILijnen, IVertrekken } from "../services/delijn.service";
+import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 
 @Component({
     selector: "app-delijn",
     templateUrl: "./delijn.component.html"
 })
 
-export class DelijnComponent{
+export class DelijnComponent implements OnInit{
     
     /*vertrekken : ILijnen[] =
     [
@@ -27,12 +28,12 @@ export class DelijnComponent{
     }
     ]*/
 
-    lijst : ILijnen[];
+    lijst : IVertrekken;
 
     constructor(private service: DelijnService){ }
 
     ngOnInit(){
-        this.service.Lijst.subscribe(result => this.lijst = result);
+        this.service.getLijst().subscribe(result => this.lijst = result);
     }
 }
 
